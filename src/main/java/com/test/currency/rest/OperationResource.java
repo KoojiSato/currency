@@ -38,7 +38,7 @@ public class OperationResource {
     }
 
     @GetMapping("/operations")
-    public ResponseEntity<List<TransactionDTO>> getOperationsDate(@RequestParam @DateTimeFormat(pattern="dd/MM/yyyy") Date transactionDate, @RequestParam String accountNumber){
+    public ResponseEntity<List<TransactionDTO>> getOperationsDate(@RequestParam("transactionDate") @DateTimeFormat(pattern="dd/MM/yyyy") Date transactionDate, @RequestParam("accountNumber") String accountNumber){
         List<TransactionDTO> transactions = operationService.findTransactionsDateClient(accountNumber, transactionDate);
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }

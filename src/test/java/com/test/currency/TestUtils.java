@@ -27,6 +27,7 @@ public class TestUtils {
     }
 
     public void createClients(){
+        clientRepository.deleteAll();
         clientRepository.save(clientExclusive());
         clientRepository.save(clientNoFund());
         clientRepository.save(normalClient());
